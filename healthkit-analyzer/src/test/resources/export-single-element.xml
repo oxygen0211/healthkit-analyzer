@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HealthData [
+<!-- HealthKit Export Version: 3 -->
+<!ELEMENT HealthData (ExportDate,Me,(Record|Correlation|Workout|ActivitySummary)*)>
+<!ATTLIST HealthData
+  locale CDATA #REQUIRED
+>
+<!ELEMENT ExportDate EMPTY>
+<!ATTLIST ExportDate
+  value CDATA #REQUIRED
+>
+<!ELEMENT Me EMPTY>
+<!ATTLIST Me
+  HKCharacteristicTypeIdentifierDateOfBirth         CDATA #REQUIRED
+  HKCharacteristicTypeIdentifierBiologicalSex       CDATA #REQUIRED
+  HKCharacteristicTypeIdentifierBloodType           CDATA #REQUIRED
+  HKCharacteristicTypeIdentifierFitzpatrickSkinType CDATA #REQUIRED
+>
+<!ELEMENT Record (MetadataEntry*)>
+<!ATTLIST Record
+  type          CDATA #REQUIRED
+  unit          CDATA #IMPLIED
+  value         CDATA #IMPLIED
+  sourceName    CDATA #REQUIRED
+  sourceVersion CDATA #IMPLIED
+  device        CDATA #IMPLIED
+  creationDate  CDATA #IMPLIED
+  startDate     CDATA #REQUIRED
+  endDate       CDATA #REQUIRED
+>
+<!-- Note: Any Records that appear as children of a correlation also appear as top-level records in this document. -->
+<!ELEMENT Correlation ((MetadataEntry|Record)*)>
+<!ATTLIST Correlation
+  type          CDATA #REQUIRED
+  sourceName    CDATA #REQUIRED
+  sourceVersion CDATA #IMPLIED
+  device        CDATA #IMPLIED
+  creationDate  CDATA #IMPLIED
+  startDate     CDATA #REQUIRED
+  endDate       CDATA #REQUIRED
+>
+<!ELEMENT Workout ((MetadataEntry|WorkoutEvent)*)>
+<!ATTLIST Workout
+  workoutActivityType   CDATA #REQUIRED
+  duration              CDATA #IMPLIED
+  durationUnit          CDATA #IMPLIED
+  totalDistance         CDATA #IMPLIED
+  totalDistanceUnit     CDATA #IMPLIED
+  totalEnergyBurned     CDATA #IMPLIED
+  totalEnergyBurnedUnit CDATA #IMPLIED
+  sourceName            CDATA #REQUIRED
+  sourceVersion         CDATA #IMPLIED
+  device                CDATA #IMPLIED
+  creationDate          CDATA #IMPLIED
+  startDate             CDATA #REQUIRED
+  endDate               CDATA #REQUIRED
+>
+<!ELEMENT WorkoutEvent EMPTY>
+<!ATTLIST WorkoutEvent
+  type CDATA #REQUIRED
+  date CDATA #REQUIRED
+>
+<!ELEMENT ActivitySummary EMPTY>
+<!ATTLIST ActivitySummary
+  dateComponents           CDATA #IMPLIED
+  activeEnergyBurned       CDATA #IMPLIED
+  activeEnergyBurnedGoal   CDATA #IMPLIED
+  activeEnergyBurnedUnit   CDATA #IMPLIED
+  appleExerciseTime        CDATA #IMPLIED
+  appleExerciseTimeGoal    CDATA #IMPLIED
+  appleStandHours          CDATA #IMPLIED
+  appleStandHoursGoal      CDATA #IMPLIED
+>
+<!ELEMENT MetadataEntry EMPTY>
+<!ATTLIST MetadataEntry
+  key   CDATA #REQUIRED
+  value CDATA #REQUIRED
+>
+]>
+<HealthData locale="de_DE">
+ <ExportDate value="2016-10-22 18:26:21 +0200"/>
+ <Me HKCharacteristicTypeIdentifierDateOfBirth="" HKCharacteristicTypeIdentifierBiologicalSex="HKBiologicalSexMale" HKCharacteristicTypeIdentifierBloodType="HKBloodTypeNotSet" HKCharacteristicTypeIdentifierFitzpatrickSkinType="HKFitzpatrickSkinTypeNotSet"/>
+ <Record type="HKQuantityTypeIdentifierBodyMassIndex" sourceName="Withings" sourceVersion="2150203" unit="count" creationDate="2016-10-16 13:12:43 +0200" startDate="2016-08-23 06:52:23 +0200" endDate="2016-08-23 06:52:23 +0200" value="41.1701">
+  <MetadataEntry key="Health Mate App Version" value="2.15.2"/>
+  <MetadataEntry key="Withings User Identifier" value="1234567"/>
+  <MetadataEntry key="Modified Date" value="2016-08-23 04:53:25 +0000"/>
+  <MetadataEntry key="Withings Link" value="withings-bd2://timeline/measure?userid=1234567&amp;date=493620743&amp;type=1"/>
+  <MetadataEntry key="HKWasUserEntered" value="0"/>
+ </Record>
+ <Record type="HKQuantityTypeIdentifierHeight" sourceName="Withings" sourceVersion="2150203" unit="cm" creationDate="2016-10-16 13:12:42 +0200" startDate="2014-12-24 22:39:48 +0200" endDate="2014-12-24 22:39:48 +0200" value="173">
+  <MetadataEntry key="Health Mate App Version" value="2.15.2"/>
+  <MetadataEntry key="Withings User Identifier" value="1234567"/>
+  <MetadataEntry key="Modified Date" value="2014-12-24 20:39:48 +0000"/>
+  <MetadataEntry key="Withings Link" value="withings-bd2://timeline/measure?userid=1234567&amp;date=441146388&amp;type=4"/>
+  <MetadataEntry key="HKWasUserEntered" value="1"/>
+ </Record>
+ <Record type="HKQuantityTypeIdentifierBodyMass" sourceName="Withings" sourceVersion="2150203" unit="kg" creationDate="2016-10-16 13:12:43 +0200" startDate="2015-02-07 10:42:46 +0200" endDate="2015-02-07 10:42:46 +0200" value="128.611">
+  <MetadataEntry key="Health Mate App Version" value="2.15.2"/>
+  <MetadataEntry key="Withings User Identifier" value="1234567"/>
+  <MetadataEntry key="Modified Date" value="2015-02-07 08:53:54 +0000"/>
+  <MetadataEntry key="Withings Link" value="withings-bd2://timeline/measure?userid=1234567&amp;date=444991366&amp;type=1"/>
+  <MetadataEntry key="HKWasUserEntered" value="0"/>
+ </Record>
+ <Record type="HKQuantityTypeIdentifierHeartRate" sourceName="Withings" sourceVersion="2150203" unit="count/min" creationDate="2016-10-16 13:12:43 +0200" startDate="2015-05-07 08:17:17 +0200" endDate="2015-05-07 08:17:17 +0200" value="91">
+  <MetadataEntry key="Health Mate App Version" value="2.15.2"/>
+  <MetadataEntry key="Withings User Identifier" value="1234567"/>
+  <MetadataEntry key="Modified Date" value="2015-05-07 06:18:00 +0000"/>
+  <MetadataEntry key="Withings Link" value="withings-bd2://timeline/measure?userid=1234567&amp;date=452672237&amp;type=11"/>
+  <MetadataEntry key="HKWasUserEntered" value="0"/>
+ </Record>
+ <Record type="HKQuantityTypeIdentifierBodyFatPercentage" sourceName="Withings" sourceVersion="2150203" unit="%" creationDate="2016-10-16 13:12:42 +0200" startDate="2014-12-27 10:17:07 +0200" endDate="2014-12-27 10:17:07 +0200" value="0.515143">
+  <MetadataEntry key="Health Mate App Version" value="2.15.2"/>
+  <MetadataEntry key="Withings User Identifier" value="1234567"/>
+  <MetadataEntry key="Modified Date" value="2014-12-27 08:18:03 +0000"/>
+  <MetadataEntry key="Withings Link" value="withings-bd2://timeline/measure?userid=1234567&amp;date=441361027&amp;type=1"/>
+  <MetadataEntry key="HKWasUserEntered" value="0"/>
+ </Record>
+ <Record type="HKQuantityTypeIdentifierStepCount" sourceName="My iPhone" sourceVersion="9.3.1" device="&lt;&lt;HKDevice:" unit="count" creationDate="2016-08-20 12:45:00 +0200" startDate="2016-08-20 12:15:53 +0200" endDate="2016-08-20 12:19:18 +0200" value="31"/>
+ <Record type="HKQuantityTypeIdentifierDistanceWalkingRunning" sourceName="My iPhone" sourceVersion="9.3.1" device="&lt;&lt;" unit="km" creationDate="2016-08-20 12:45:00 +0200" startDate="2016-08-20 12:15:53 +0200" endDate="2016-08-20 12:19:18 +0200" value="0.01816"/>
+ <Record type="HKQuantityTypeIdentifierActiveEnergyBurned" sourceName="Withings" sourceVersion="2150203" unit="kcal" creationDate="2016-10-16 13:12:45 +0200" startDate="2016-02-18 01:00:00 +0200" endDate="2016-02-19 01:00:00 +0200" value="117.596">
+  <MetadataEntry key="Health Mate App Version" value="2.15.2"/>
+  <MetadataEntry key="Withings User Identifier" value="1234567"/>
+  <MetadataEntry key="Modified Date" value="2016-07-17 07:55:13 +0000"/>
+  <MetadataEntry key="HKDeviceManufacturerName" value="Withings Device"/>
+  <MetadataEntry key="Withings Link" value="withings-bd2://timeline/aggregate?userid=1234567&amp;startdate=1468742113&amp;type=activity&amp;range=day"/>
+ </Record>
+ <Record type="HKQuantityTypeIdentifierFlightsClimbed" sourceName="My iPhone" sourceVersion="9.3.1" device="&lt;&lt;HKDevice:" unit="count" creationDate="2016-08-20 13:47:02 +0200" startDate="2016-08-20 13:16:21 +0200" endDate="2016-08-20 13:16:21 +0200" value="1"/>
+ <Record type="HKQuantityTypeIdentifierDietaryFatTotal" sourceName="MyFitnessPal" sourceVersion="17187" unit="g" creationDate="2016-10-16 14:28:18 +0200" startDate="2016-10-16 14:25:00 +0200" endDate="2016-10-16 14:25:00 +0200" value="15.3588">
+  <MetadataEntry key="meal" value="Breakfast"/>
+  <MetadataEntry key="Mahlzeit" value="Frühstück"/>
+ </Record>
+ <Record type="HKQuantityTypeIdentifierDietaryFatPolyunsaturated" sourceName="MyFitnessPal" sourceVersion="17187" unit="g" creationDate="2016-10-16 14:28:18 +0200" startDate="2016-10-16 14:25:00 +0200" endDate="2016-10-16 14:25:00 +0200" value="1.22563">
+  <MetadataEntry key="meal" value="Breakfast"/>
+  <MetadataEntry key="Mahlzeit" value="Frühstück"/>
+ </Record>
+ <Record type="HKQuantityTypeIdentifierDietaryFatSaturated" sourceName="MyFitnessPal" sourceVersion="17187" unit="g" creationDate="2016-10-16 14:28:18 +0200" startDate="2016-10-16 14:25:00 +0200" endDate="2016-10-16 14:25:00 +0200" value="7.1935">
+  <MetadataEntry key="meal" value="Breakfast"/>
+  <MetadataEntry key="Mahlzeit" value="Frühstück"/>
+ </Record>
+ <Record type="HKQuantityTypeIdentifierDietaryCholesterol" sourceName="MyFitnessPal" sourceVersion="17187" unit="mg" creationDate="2016-10-16 14:28:18 +0200" startDate="2016-10-16 14:25:00 +0200" endDate="2016-10-16 14:25:00 +0200" value="26.875">
+  <MetadataEntry key="meal" value="Breakfast"/>
+  <MetadataEntry key="Mahlzeit" value="Frühstück"/>
+ </Record>
+ <Record type="HKQuantityTypeIdentifierDietarySodium" sourceName="MyFitnessPal" sourceVersion="17187" unit="mg" creationDate="2016-10-16 14:28:18 +0200" startDate="2016-10-16 14:25:00 +0200" endDate="2016-10-16 14:25:00 +0200" value="516">
+  <MetadataEntry key="meal" value="Breakfast"/>
+  <MetadataEntry key="Mahlzeit" value="Frühstück"/>
+ </Record>
+ <Record type="HKQuantityTypeIdentifierDietaryCarbohydrates" sourceName="MyFitnessPal" sourceVersion="17187" unit="g" creationDate="2016-10-16 14:28:18 +0200" startDate="2016-10-16 14:25:00 +0200" endDate="2016-10-16 14:25:00 +0200" value="50.6525">
+  <MetadataEntry key="meal" value="Breakfast"/>
+  <MetadataEntry key="Mahlzeit" value="Frühstück"/>
+ </Record>
+ <Record type="HKQuantityTypeIdentifierDietaryFiber" sourceName="MyFitnessPal" sourceVersion="17187" unit="g" creationDate="2016-10-16 14:28:18 +0200" startDate="2016-10-16 14:25:00 +0200" endDate="2016-10-16 14:25:00 +0200" value="7.5">
+  <MetadataEntry key="meal" value="Breakfast"/>
+  <MetadataEntry key="Mahlzeit" value="Frühstück"/>
+ </Record>
+ <Record type="HKQuantityTypeIdentifierDietarySugar" sourceName="MyFitnessPal" sourceVersion="17187" unit="g" creationDate="2016-10-16 14:28:18 +0200" startDate="2016-10-16 14:25:00 +0200" endDate="2016-10-16 14:25:00 +0200" value="28.1675">
+  <MetadataEntry key="meal" value="Breakfast"/>
+  <MetadataEntry key="Mahlzeit" value="Frühstück"/>
+ </Record>
+ <Record type="HKQuantityTypeIdentifierDietaryEnergyConsumed" sourceName="MyFitnessPal" sourceVersion="17187" unit="kcal" creationDate="2016-10-16 14:28:17 +0200" startDate="2016-10-16 14:25:00 +0200" endDate="2016-10-16 14:25:00 +0200" value="350.25">
+  <MetadataEntry key="meal" value="Breakfast"/>
+  <MetadataEntry key="Mahlzeit" value="Frühstück"/>
+ </Record>
+ <Record type="HKQuantityTypeIdentifierDietaryProtein" sourceName="MyFitnessPal" sourceVersion="17187" unit="g" creationDate="2016-10-16 14:28:18 +0200" startDate="2016-10-16 14:25:00 +0200" endDate="2016-10-16 14:25:00 +0200" value="11.5512">
+  <MetadataEntry key="meal" value="Breakfast"/>
+  <MetadataEntry key="Mahlzeit" value="Frühstück"/>
+ </Record>
+ <Record type="HKQuantityTypeIdentifierDietaryVitaminC" sourceName="MyFitnessPal" sourceVersion="17187" unit="mg" creationDate="2016-10-16 14:28:18 +0200" startDate="2016-10-16 14:25:00 +0200" endDate="2016-10-16 14:25:00 +0200" value="0">
+  <MetadataEntry key="meal" value="Breakfast"/>
+  <MetadataEntry key="Mahlzeit" value="Frühstück"/>
+ </Record>
+ <Record type="HKQuantityTypeIdentifierDietaryVitaminC" sourceName="MyFitnessPal" sourceVersion="17187" unit="mg" creationDate="2016-10-16 14:34:50 +0200" startDate="2016-10-16 14:29:00 +0200" endDate="2016-10-16 14:29:00 +0200" value="0.0608651">
+  <MetadataEntry key="meal" value="Lunch"/>
+  <MetadataEntry key="Mahlzeit" value="Mittagessen"/>
+ </Record>
+ <Record type="HKQuantityTypeIdentifierDietaryVitaminC" sourceName="MyFitnessPal" sourceVersion="17187" unit="mg" creationDate="2016-10-16 18:31:04 +0200" startDate="2016-10-16 18:30:00 +0200" endDate="2016-10-16 18:30:00 +0200" value="0">
+  <MetadataEntry key="meal" value="Dinner"/>
+  <MetadataEntry key="Mahlzeit" value="Abendessen"/>
+ </Record>
+ <Record type="HKQuantityTypeIdentifierDietaryVitaminC" sourceName="MyFitnessPal" sourceVersion="17187" unit="mg" creationDate="2016-10-16 19:05:20 +0200" startDate="2016-10-17 18:59:00 +0200" endDate="2016-10-17 18:59:00 +0200" value="0">
+  <MetadataEntry key="meal" value="Lunch"/>
+  <MetadataEntry key="Mahlzeit" value="Mittagessen"/>
+ </Record>
+ <Record type="HKQuantityTypeIdentifierDietaryCalcium" sourceName="MyFitnessPal" sourceVersion="17580" unit="mg" creationDate="2016-10-22 15:48:07 +0200" startDate="2016-10-22 15:48:00 +0200" endDate="2016-10-22 15:48:00 +0200" value="0">
+  <MetadataEntry key="meal" value="Snacks"/>
+  <MetadataEntry key="Mahlzeit" value="Snacks"/>
+ </Record>
+ <Record type="HKQuantityTypeIdentifierDietaryIron" sourceName="MyFitnessPal" sourceVersion="17187" unit="mg" creationDate="2016-10-16 14:28:18 +0200" startDate="2016-10-16 14:25:00 +0200" endDate="2016-10-16 14:25:00 +0200" value="2.785">
+  <MetadataEntry key="meal" value="Breakfast"/>
+  <MetadataEntry key="Mahlzeit" value="Frühstück"/>
+ </Record>
+ <Record type="HKQuantityTypeIdentifierDietaryPotassium" sourceName="MyFitnessPal" sourceVersion="17580" unit="mg" creationDate="2016-10-22 15:48:07 +0200" startDate="2016-10-22 15:48:00 +0200" endDate="2016-10-22 15:48:00 +0200" value="0">
+  <MetadataEntry key="meal" value="Snacks"/>
+  <MetadataEntry key="Mahlzeit" value="Snacks"/>
+ </Record>
+ <Record type="HKQuantityTypeIdentifierDietaryCaffeine" sourceName="UP Coffee" sourceVersion="1.2" unit="mg" creationDate="2016-08-20 20:18:43 +0200" startDate="2016-08-20 20:18:19 +0200" endDate="2016-08-20 20:18:19 +0200" value="70"/>
+</HealthData>
