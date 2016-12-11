@@ -2,6 +2,7 @@ package com.engelhardt;
 
 import java.io.InputStream;
 import java.net.URLDecoder;
+import java.net.UnknownHostException;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
@@ -30,6 +31,8 @@ import com.amazonaws.services.s3.model.S3Object;
 import com.engelhardt.analysis.Analyzer;
 import com.engelhardt.data.Analysis;
 import com.engelhardt.data.HealthKitData;
+import com.engelhardt.es.ElasticsearchClient;
+import com.fasterxml.jackson.core.JsonProcessingException;
 
 public class HealthkitAnalyzer implements RequestHandler<S3Event, Analysis> {
 	
@@ -54,14 +57,22 @@ public class HealthkitAnalyzer implements RequestHandler<S3Event, Analysis> {
 				healthData.add(parseHealthkitDump(s3Object.getObjectContent()));
 			}
 			
-			Analysis analysis = new Analyzer().analyze(healthData);
-			
-			return analysis;
+			return startAnalysis(healthData);
 			
 		} catch (Exception e) {
 			LOG.error("Error during lambda execution", e);
 			throw new RuntimeException(e);
 		}
+	}
+	
+	Analysis startAnalysis(List<HealthKitData> healthData) throws UnknownHostException, JsonProcessingException
+	{
+		Analysis analysis = new Analyzer().analyze(healthData);
+		
+		ElasticsearchClient esClient = new ElasticsearchClient();
+		esClient.indexAnalysis(analysis);
+		esClient.finalize();
+		return analysis;
 	}
 
 	HealthKitData parseHealthkitDump(InputStream stream)
