@@ -15,21 +15,55 @@ public class HealthKitData {
 	private Map<Long, Float> consumedProtein = new HashMap<>();
 	private Map<Long, Float> consumedFat = new HashMap<>();
 	private Map<Long, Float> consumedCarbohydrate = new HashMap<>();
+	private Map<Long, Float> consumedEnergy = new HashMap<>();
 	
 	public void addWeight(String date, float weight) throws ParseException{
 		weights.put(parseDate(date), weight);
 	}
 	
 	public void addConsumedProtein(String date, float protein) throws ParseException{
-		consumedProtein.put(parseDate(date), protein);
+		long parsedDate = parseDate(date);
+		Float overallProtein = consumedProtein.get(parsedDate);
+		if(overallProtein == null){
+			overallProtein = 0.0f;
+		}
+		
+		overallProtein += protein;
+		consumedProtein.put(parsedDate, overallProtein);
 	}
 	
 	public void addConsumedFat(String date, float fat) throws ParseException{
-		consumedFat.put(parseDate(date), fat);
+		long parsedDate = parseDate(date);
+		Float overallFat = consumedFat.get(parsedDate);
+		if (overallFat == null){
+			overallFat = 0.0f;
+		}
+		
+		overallFat += fat;
+		
+		consumedFat.put(parsedDate, overallFat);
 	}
 	
 	public void addConsumedCarboHydrate(String date, float carbo) throws ParseException{
-		consumedCarbohydrate.put(parseDate(date), carbo);
+		long parsedDate = parseDate(date);
+		Float overallCarbs = consumedCarbohydrate.get(parsedDate);
+		if (overallCarbs == null){
+			overallCarbs = 0.0f;
+		}
+		overallCarbs += carbo;
+		
+		consumedCarbohydrate.put(parsedDate, overallCarbs);
+	}
+	
+	public void addConsumedEnergy(String date, float cals) throws ParseException{
+		long parsedDate = parseDate(date);
+		Float overallCals = consumedEnergy.get(parsedDate);
+		if(overallCals == null){
+			overallCals = 0.0f;
+		}
+		overallCals += cals;
+		
+		consumedEnergy.put(parsedDate, overallCals);
 	}
 	
 	public Map<Long, Float> getWeights() {
@@ -69,11 +103,19 @@ public class HealthKitData {
 		
 		Calendar cal = Calendar.getInstance();
         cal.setTime(date);
-        cal.set(Calendar.HOUR_OF_DAY, 0);
+        cal.set(Calendar.HOUR_OF_DAY, 12);
         cal.set(Calendar.MINUTE, 0);
         cal.set(Calendar.SECOND, 0);
         cal.set(Calendar.MILLISECOND, 0);
 		
 		return cal.getTimeInMillis();
+	}
+
+	public Map<Long, Float> getConsumedEnergy() {
+		return consumedEnergy;
+	}
+
+	public void setConsumedEnergy(Map<Long, Float> consumedEnergy) {
+		this.consumedEnergy = consumedEnergy;
 	}
 }

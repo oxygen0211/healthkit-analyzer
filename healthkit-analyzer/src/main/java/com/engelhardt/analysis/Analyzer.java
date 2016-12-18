@@ -31,11 +31,18 @@ public class Analyzer {
 	
 	private AnalysisDay createAnalysis(long date, HealthKitData data)
 	{
-		float protein = data.getConsumedProtein(date);
-		float fat = data.getConsumedFat(date);
-		float carbs = data.getConsumedCarbohydrate(date);
-		float weight = data.getWeights().get(date);
-		return new AnalysisDay(new Date(date), protein, fat, carbs, weight);
+		float protein = nullProtect(data.getConsumedProtein(date));
+		float fat = nullProtect(data.getConsumedFat(date));
+		float carbs = nullProtect(data.getConsumedCarbohydrate(date));
+		float weight = nullProtect(data.getWeights().get(date));
+		float energy = nullProtect(data.getConsumedEnergy().get(date));
+		
+		return new AnalysisDay(new Date(date), protein, fat, carbs, weight, energy);
+	}
+	
+	private float nullProtect(Float value)
+	{
+		return value!=null ? value : 0.0f; 
 	}
 	
 	private Analysis calculateRatios(Analysis analysis)

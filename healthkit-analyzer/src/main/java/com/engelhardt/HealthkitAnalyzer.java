@@ -116,6 +116,11 @@ public class HealthkitAnalyzer implements RequestHandler<S3Event, Analysis> {
 
 				case "HKQuantityTypeIdentifierDietaryCarbohydrates":
 					data.addConsumedCarboHydrate(date, Float.valueOf(value));
+					break;
+				
+				case "HKQuantityTypeIdentifierDietaryEnergyConsumed":
+					data.addConsumedEnergy(date, Float.valueOf(value));
+					break;
 				}
 			}
 			continue;
