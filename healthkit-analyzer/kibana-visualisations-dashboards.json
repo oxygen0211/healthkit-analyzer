@@ -6,7 +6,7 @@
       "title": "weight-dashboard",
       "hits": 0,
       "description": "",
-      "panelsJSON": "[{\"col\":1,\"id\":\"weight-timeline\",\"panelIndex\":1,\"row\":1,\"size_x\":6,\"size_y\":3,\"type\":\"visualization\"},{\"col\":7,\"id\":\"weight-change-vs-macros\",\"panelIndex\":2,\"row\":1,\"size_x\":6,\"size_y\":3,\"type\":\"visualization\"}]",
+      "panelsJSON": "[{\"col\":1,\"id\":\"weight-change-vs-cals\",\"panelIndex\":3,\"row\":1,\"size_x\":12,\"size_y\":4,\"type\":\"visualization\"},{\"col\":1,\"id\":\"weight-change-vs-carbs\",\"panelIndex\":4,\"row\":5,\"size_x\":12,\"size_y\":4,\"type\":\"visualization\"},{\"col\":1,\"id\":\"weight-change-vs-proteins\",\"panelIndex\":5,\"row\":9,\"size_x\":12,\"size_y\":4,\"type\":\"visualization\"},{\"col\":1,\"id\":\"weight-change-vs-macros\",\"panelIndex\":2,\"row\":21,\"size_x\":12,\"size_y\":4,\"type\":\"visualization\"},{\"id\":\"weight-change-vs-fat\",\"type\":\"visualization\",\"panelIndex\":6,\"size_x\":12,\"size_y\":4,\"col\":1,\"row\":13},{\"id\":\"weight-timeline\",\"type\":\"visualization\",\"panelIndex\":7,\"size_x\":12,\"size_y\":4,\"col\":1,\"row\":17}]",
       "optionsJSON": "{\"darkTheme\":false}",
       "uiStateJSON": "{}",
       "version": 1,
@@ -31,11 +31,67 @@
     }
   },
   {
+    "_id": "weight-change-vs-cals",
+    "_type": "visualization",
+    "_source": {
+      "title": "weight-change-vs-cals",
+      "visState": "{\"title\":\"weight-change-vs-cals\",\"type\":\"timelion\",\"params\":{\"expression\":\".es(index='health*', timefield='timestamp', metric='max:consumedCals').fit(mode=nearest).color(black), .es(index='health*', timefield='timestamp', metric='min:weightChange', kibana=true, offset='-1d').if(operator='lte', if=0, then=.es(index='health*', timefield='timestamp', metric='max:consumedCals'), else=null).bars().color(#00e600).label(\\\"calorie intake vs weight loss\\\"), .es(index='health*', timefield='timestamp', metric='min:weightChange', kibana=true, offset='-1d').if(operator='gt', if=0, then=.es(index='health*', timefield='timestamp', metric='max:consumedCals'), else=null).bars().color(#ff3300).label(\\\"calorie intake vs weight gain\\\")\",\"interval\":\"auto\"},\"aggs\":[],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "weight-change-vs-proteins",
+    "_type": "visualization",
+    "_source": {
+      "title": "weight-change-vs-proteins",
+      "visState": "{\"title\":\"weight-change-vs-proteins\",\"type\":\"timelion\",\"params\":{\"expression\":\".es(index='health*', timefield='timestamp', metric='max:consumedProtein').fit(mode=nearest).color(black), .es(index='health*', timefield='timestamp', metric='min:weightChange', kibana=true, offset='-1d').if(operator='lte', if=0, then=.es(index='health*', timefield='timestamp', metric='max:consumedProtein'), else=null).bars().color(#00e600).label(\\\"protein intake vs weight loss\\\"), .es(index='health*', timefield='timestamp', metric='min:weightChange', kibana=true, offset='-1d').if(operator='gt', if=0, then=.es(index='health*', timefield='timestamp', metric='max:consumedProtein'), else=null).bars().color(#ff3300).label(\\\"protein intake vs weight gain\\\")\",\"interval\":\"auto\"},\"aggs\":[],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"query\":{\"query_string\":{\"analyze_wildcard\":true,\"query\":\"*\"}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "weight-change-vs-carbs",
+    "_type": "visualization",
+    "_source": {
+      "title": "weight-change-vs-carbs",
+      "visState": "{\"title\":\"weight-change-vs-carbs\",\"type\":\"timelion\",\"params\":{\"expression\":\".es(index='health*', timefield='timestamp', metric='max:consumedCarbohydrate').fit(mode=nearest).color(black), .es(index='health*', timefield='timestamp', metric='min:weightChange', kibana=true, offset='-1d').if(operator='lte', if=0, then=.es(index='health*', timefield='timestamp', metric='max:consumedCarbohydrate'), else=null).bars().color(#00e600).label(\\\"carb intake vs weight loss\\\"), .es(index='health*', timefield='timestamp', metric='min:weightChange', kibana=true, offset='-1d').if(operator='gt', if=0, then=.es(index='health*', timefield='timestamp', metric='max:consumedCarbohydrate'), else=null).bars().color(#ff3300).label(\\\"carb intake vs weight gain\\\")\",\"interval\":\"auto\"},\"aggs\":[],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"query\":{\"query_string\":{\"analyze_wildcard\":true,\"query\":\"*\"}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "weight-change-vs-fat",
+    "_type": "visualization",
+    "_source": {
+      "title": "weight-change-vs-fat",
+      "visState": "{\"title\":\"weight-change-vs-fat\",\"type\":\"timelion\",\"params\":{\"expression\":\".es(index='health*', timefield='timestamp', metric='max:consumedFat').fit(mode=nearest).color(black), .es(index='health*', timefield='timestamp', metric='min:weightChange', kibana=true, offset='-1d').if(operator='lte', if=0, then=.es(index='health*', timefield='timestamp', metric='max:consumedFat'), else=null).bars().color(#00e600).label(\\\"protein intake vs weight loss\\\"), .es(index='health*', timefield='timestamp', metric='min:weightChange', kibana=true, offset='-1d').if(operator='gt', if=0, then=.es(index='health*', timefield='timestamp', metric='max:consumedFat'), else=null).bars().color(#ff3300).label(\\\"protein intake vs weight gain\\\")\",\"interval\":\"auto\"},\"aggs\":[],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"query\":{\"query_string\":{\"analyze_wildcard\":true,\"query\":\"*\"}},\"filter\":[]}"
+      }
+    }
+  },
+  {
     "_id": "weight-change-vs-macros",
     "_type": "visualization",
     "_source": {
       "title": "weight-change-vs-macros",
-      "visState": "{\"title\":\"weight-change-vs-macros\",\"type\":\"timelion\",\"params\":{\"expression\":\".es(index='health*', timefield='timestamp', metric='max:weight', kibana=true, offset='-1d').fit(mode='nearest').derivative().multiply(100), .es(index='health*', timefield='timestamp', metric='max:consumedFat').bars(),  .es(index='health*', timefield='timestamp', metric='max:consumedProtein').bars(), .es(index='health*', timefield='timestamp', metric='max:consumedCarbohydrate').bars(), .es(index='health*', timefield='timestamp', metric='avg:consumedCals').fit(mode=nearest).divide(20)\",\"interval\":\"auto\"},\"aggs\":[],\"listeners\":{}}",
+      "visState": "{\"title\":\"weight-change-vs-macros\",\"type\":\"timelion\",\"params\":{\"expression\":\".es(index='health*', timefield='timestamp', metric='min:weightChange', kibana=true, offset='-1d').fit(mode='nearest'), .es(index='health*', timefield='timestamp', metric='max:consumedFat').bars().yaxis(2),  .es(index='health*', timefield='timestamp', metric='max:consumedProtein').bars().yaxis(2), .es(index='health*', timefield='timestamp', metric='max:consumedCarbohydrate').bars().yaxis(2)\",\"interval\":\"auto\"},\"aggs\":[],\"listeners\":{}}",
       "uiStateJSON": "{}",
       "description": "",
       "version": 1,
